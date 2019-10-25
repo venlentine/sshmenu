@@ -350,9 +350,18 @@ def display_menu():
             else:
                 command = 'ssh'
 
-            # Arguments to the child process should start with the name of the command being run
-            args = [command] + target.get('options', []) + [target['host']]
+            if command == 'sshpass':
+                if 'port' in target.keys():
+                    args = [command] + target.get('options', []) + ['ssh'] + ['-p ' + str(target['port'])] + [target['host']]
+                else:
+                    args = [command] + target.get('options', []) + ['ssh'] + [target['host']]
+            else:
+                # Arguments to the child process should start with the name of the command being run
+                args = [command] + target.get('options', []) + [target['host']]
+
             try:
+                print(command)
+                print(args)
                 # After this line, ssh will replace the python process
                 os.execvp(command, args)
             except FileNotFoundError:
