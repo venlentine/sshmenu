@@ -26,6 +26,12 @@ Tested working on macOS High Sierra (10.13.1) and Ubuntu Trusty Tahr (14.04), Xe
    pip3 install sshmenu
    sshmenu
 
+**Offline installation**
+
+.. code-block:: bash
+
+   python setup.py install
+
 **Development**
 
 .. code-block:: bash

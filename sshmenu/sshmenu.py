@@ -360,8 +360,8 @@ def display_menu():
                 args = [command] + target.get('options', []) + [target['host']]
 
             try:
-                print(command)
-                print(args)
+                # print(command)
+                # print(args)
                 # After this line, ssh will replace the python process
                 os.execvp(command, args)
             except FileNotFoundError:
